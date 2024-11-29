@@ -25,6 +25,8 @@ def main():
         
         dt_ms = clock.tick(MAX_FPS)
         dt_s = dt_ms / 1000
+        
+        player.update(dt_s)
 
         pygame.display.flip()
 
