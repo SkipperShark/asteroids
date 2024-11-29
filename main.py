@@ -6,16 +6,15 @@ def main():
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
     print("Initializing game")
-    num_pass, num_fail = pygame.init()
-    
-    #todo num_fail is 1, how do I know which module failed to initialize?
-    
-    # if num_fail > 0:
-    #     print(f"num pass : #{num_pass}")
-    #     print(f"num fail : #{num_fail}")
-    #     raise Exception("Error initializing pygame module!")
-    print(f"pygame running : {pygame.get_init()}")
-
+    pygame.init()
+    surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+        
+        surface.fill(SCREEN_COLOR)
+        pygame.display.flip()
 
 if __name__ == "__main__":
     main()
